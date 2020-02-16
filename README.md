@@ -6,7 +6,7 @@
 
 **Latest Version: 5.5.62**
 
-*OptiPerl will help you create CGI scripts in Perl, offline in Windows. It is a fully integrated developing environment for creating, testing, debugging and running perl scripts, directly or through associated html documents.*
+*OptiPerl will help you create Perl scripts, offline in Windows. It is a fully integrated developing environment for creating, testing, debugging and running perl scripts, directly or through associated html documents.*
 
 OptiPerl was a commercial application for Windows, developed between the years 1999 and 2008. As we don't support it any more, we have released the source code.
 
