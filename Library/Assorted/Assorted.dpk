@@ -1,0 +1,70 @@
+package Assorted;
+
+{$R *.res}
+{$R 'Phantom.dcr'}
+{$R 'cxKeyPlusReg.dcr'}
+{$R 'DrawComboBox.dcr'}
+{$R 'PBFolderDialog.dcr'}
+{$R 'AJBSpeller.dcr'}
+{$R 'MsnPopup.dcr'}
+{$R 'ComboBoxX.dcr'}
+{$R 'hexeditor.dcr'}
+{$R '..\Console\consoleIO.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Assorted Components'}
+{$DESIGNONLY}
+{$IMPLICITBUILD ON}
+{$DEFINE EUREKALOG}
+
+requires
+  vclx,
+  designide,
+  dbrtl,
+  vcldb,
+  vcl,
+  rtl,
+  DIPcre_D7,
+  dclstd,
+  vclactnband,
+  dcctd7,
+  bdertl;
+
+contains
+  Phantom in 'Phantom.pas',
+  FindFile in 'FindFile.pas',
+  x2000la in 'x2000la.pas',
+  x2000di in 'x2000di.pas',
+  cxKeyPlusReg in 'cxKeyPlusReg.pas',
+  ImageListEx in 'ImageListEx.pas',
+  DrawComboBox in 'DrawComboBox.pas',
+  PBFolderDialog in 'PBFolderDialog.pas',
+  ACCELMAK in 'ACCELMAK.PAS' {AcceleratorMakerEditorForm},
+  rmRegister in '..\rmDiff\rmRegister.pas',
+  AJBSpeller in 'AJBSpeller.pas',
+  AJBSpellerReg in 'AJBSpellerReg.pas',
+  MSNPopUp in 'MsnPopup.pas',
+  ComboBoxX in 'ComboBoxX.pas',
+  hexeditor in 'hexeditor.pas',
+  ConsoleIO in 'consoleIO.pas';
+
+end.

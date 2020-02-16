@@ -1,0 +1,56 @@
+OPTIPERL EVALUATION VERSION
+This is not free software. You are hereby licensed to use this 
+software for evaluation purposes without charge for a period of 30 
+days.
+
+OPTIPERL REGISTERED VERSION
+Each license grants you permission to install the product on up to 
+three computers, however each copy may only be used at any one computer 
+at any one time. 
+
+COPYRIGHT RESTRICTION
+Xarka software name and any logo or graphics file that represents 
+our software may not be used in any way to promote products 
+developed with our software.  All parts of Xarka’s software and 
+products are copyright protected.
+
+DISCLAIMER
+THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, 
+EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO WARRANTIES 
+OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.  IN NO 
+EVENT WILL THE AUTHOR BE LIABLE TO YOU FOR ANY DAMAGES, INCLUDING 
+INCIDENTAL OR CONSEQUENTIAL DAMAGES, ARISING OUT OF THE USE OF THIS 
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. YOU 
+ACKNOWLEDGE THAT YOU HAVE READ THIS LICENSE, UNDERSTAND IT AND 
+AGREE TO BE BOUND BY ITS TERMS.
+
+DISTRIBUTION OF EVALUATION VERSION
+The trial version of this software may be distributed freely in its 
+original unmodified form. The distribution has to include all files 
+of its original distribution. Distributors may not charge any money 
+for it.
+
+OTHER RESTRICTIONS
+You may not modify, reverse engineer, decompile or disassemble this 
+software in any way, including changing or removing any messages or 
+windows.
+
+THIRD-PARTY SOFTWARE
+- Microsoft, Windows NT, Windows XP, and the Microsoft Internet 
+  Explorer logo are registered trademarks or trademarks of 
+  Microsoft Corporation in the United States and/or other 
+  countries.
+- Netscape and Netscape Navigator are registered trademarks of 
+  Netscape Communications Corporation in the United States and 
+  other countries. Netscape's logos and Netscape product and 
+  service names are also trademarks of Netscape Communications 
+  Corporation, which may be registered in other countries.
+- ZIP Library from "Info-Zip", http://www.cdrom.com/pub/infozip/ &
+  http://www.geocities.com/SiliconValley/Network/2114/zipbeta.html
+- Perltidy is Copyright (C) 2000, 2001 by Steven L. Hancock
+- Package YAPE::Regex::Explain is work of Jeff "japhy" Pinyan, 
+  CPAN ID: PINYAN
+- Package Text::Balanced is work of Damian Conway, CPAN ID: DCONWAY
+
+OptiPerl is Copyright (C) 1999-2007 by Xarka Software
+

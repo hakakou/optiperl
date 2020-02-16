@@ -1,0 +1,63 @@
+package VirtualShellToolsD7;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'VirtualShellTools Runtime Package'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  VirtualTreesD7,
+  vclx;
+
+contains
+  AppletsAndWizards in '..\Source\AppletsAndWizards.pas',
+  ColumnForm in '..\Source\ColumnForm.pas' {FormColumnSettings},
+  VirtualCommandLine in '..\Source\VirtualCommandLine.pas',
+  VirtualDataObject in '..\Source\VirtualDataObject.pas',
+  VirtualExplorerTree in '..\Source\VirtualExplorerTree.pas',
+  VirtualIconThread in '..\Source\VirtualIconThread.pas',
+  VirtualNamespace in '..\Source\VirtualNamespace.pas',
+  VirtualPIDLTools in '..\Source\VirtualPIDLTools.pas',
+  VirtualRedirector in '..\Source\VirtualRedirector.pas',
+  VirtualResources in '..\Source\VirtualResources.pas',
+  VirtualScrollbars in '..\Source\VirtualScrollbars.pas',
+  VirtualSendToMenu in '..\Source\VirtualSendToMenu.pas',
+  VirtualShellAutoComplete in '..\Source\VirtualShellAutoComplete.pas',
+  VirtualShellContainers in '..\Source\VirtualShellContainers.pas',
+  VirtualShellHistory in '..\Source\VirtualShellHistory.pas',
+  VirtualShellNewMenu in '..\Source\VirtualShellNewMenu.pas',
+  VirtualShellNotifier in '..\Source\VirtualShellNotifier.pas',
+  VirtualShellToolBar in '..\Source\VirtualShellToolBar.pas',
+  VirtualShellTypes in '..\Source\VirtualShellTypes.pas',
+  VirtualShellUtilities in '..\Source\VirtualShellUtilities.pas',
+  VirtualSystemImageLists in '..\Source\VirtualSystemImageLists.pas',
+  VirtualThread in '..\Source\VirtualThread.pas',
+  VirtualUnicodeControls in '..\Source\VirtualUnicodeControls.pas',
+  VirtualUnicodeDefines in '..\Source\VirtualUnicodeDefines.pas',
+  VirtualUtilities in '..\Source\VirtualUtilities.pas',
+  VirtualWideStrings in '..\Source\VirtualWideStrings.pas';
+
+end.

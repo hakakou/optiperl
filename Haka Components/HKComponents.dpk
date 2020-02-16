@@ -1,0 +1,56 @@
+package HKComponents;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'HK Components'}
+{$DESIGNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  vclx,
+  designide,
+  DIPcre_D7,
+  DJCL70,
+  dcctd7;
+
+contains
+  HKMultiFileHandler in 'HKMultiFileHandler.pas',
+  HKWWWMenu in 'HKWWWMenu.pas',
+  HKCSVParser in 'HKCSVParser.pas',
+  HaKaTabs in 'HaKaTabs.pas',
+  HKStreamCol in 'HKStreamCol.pas',
+  HakaWinSave in 'HakaWinSave.pas',
+  SysFloatMenu in 'SysFloatMenu.pas',
+  HKPerlParser in 'HKPerlParser.pas',
+  HKReg in 'HKReg.pas',
+  HKActions in 'HKActions.pas',
+  HKFormEx in 'HKFormEx.pas',
+  HKAccurateTimer in 'HKAccurateTimer.pas',
+  HKProgressBr in 'HKProgressBr.pas' {ProgressForm},
+  HKFilePar in 'HKFilePar.pas',
+  HKMessageRec in 'HKMessageRec.pas',
+  FileMenuLite in 'FileMenuLite.pas';
+
+end.

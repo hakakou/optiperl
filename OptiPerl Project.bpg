@@ -1,0 +1,39 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = OptiPerl.exe OptiClient.exe OleTest.exe HexEditorPlugIn.opp \
+  OppDemo.opp sendmail.exe uninsOpti.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+OptiPerl.exe: Project\OptiPerl.dpr
+  $(DCC)
+
+HexEditorPlugIn.opp: Project\PlugIns\HexEditor\HexEditorPlugIn.dpr
+  $(DCC)
+
+OptiClient.exe: Client\OptiClient.dpr
+  $(DCC)
+
+OppDemo.opp: Project\PlugIns\Demo\OppDemo.dpr
+  $(DCC)
+
+OleTest.exe: Client\Test\OleTest.dpr
+  $(DCC)
+
+sendmail.exe: sendmail\sendmail.dpr
+  $(DCC)
+
+uninsOpti.exe: uninsOpti\uninsOpti.dpr
+  $(DCC)
+
+

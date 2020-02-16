@@ -1,0 +1,61 @@
+You can save you code, preserving all colour syntax to an HTML Document. Select File/Export to HTML.
+Often you see messages with information about events in the program with a "Show again?" check box. You can reset them so all can display again in Tools/Options/Environment/Reset Button.
+Pressing CTRL-J invokes the in place templates. Pressing it when the cursor is on a template name will automatically convert it to the template.
+Right click on the toolbars to select the toolbars you want.
+You can assign your own shortcuts on all of OptiPerl commands, even on your user tools and plug-ins. See Tools / customize shortcuts.
+You can create your own menus or edit the default main and sub menus. See the help file for more information.
+You can check if a new version of OptiPerl is out. Go to Help/Check for Update.
+The code library is saved in a common ZIP archive. You can also open it with any other third-party zip manager.
+Using version converter tags can be handy if you must have two or more version of your script. Using these tags enables you to quickly change the version before uploading.
+In the Watches windows, you can also enter expressions that are evaluated while debugging. For example "$a + $b".
+Check out all the pages in the Options dialog, as many aspects of OptiPerl can be customized.
+OptiPerl checks often the date/time of the file you are editing. So if you change the file, for example with a source formatter, you will be prompted to reload.
+Read more about user tools in the help file. You can do a lot of stuff by creating your own tools.
+While writing your program, you can run the debugger and enter an object in "Methods Callable". This way you will have a list of callable methods for you object.
+If Live-Evaluation is enabled (Debug Menu), you can evaluate expressions in the editor while debugging by hovering the mouse over the keyword you want. To evaluate an expression with spaces, mark it first.
+You can evaluate entire lines with spaces with Live Evaluation. Mark the sentence first and the hover the mouse over it.
+There are some useful options if you right click in the "text" tab of Web Browser.
+If you upload your script using the "Save to remote location", the shebang and version will be changed if selected in the remote transfer session.
+If you double click an *.op file in explorer, OptiPerl will launch with the associated script.
+The *.op files saved with the script you are editing store items like the to-do list and the queries. If these are not used then they are not written, and even deleted if unused.
+You can toggle the selected script in the editor by pressing Ctrl-Tab.
+You can navigate all the windows in OptiPerl by pressing Alt-End.
+Holding down Control while moving the mouse cursor over a bracket, shows the corresponding opening or closing bracket.
+Selecting Find matching bracket will navigate to the corresponding bracket under the cursor.
+For nice backgrounds, take 2 of your favourite pictures, convert them to windows bitmap, rename them to OptiEditor.bmp and OptiExplorer.bmp and copy them to the folder where you installed OptiPerl (works in registered versions).
+You can open multiple files in the Open dialog. Just hold down the Ctrl button while selecting the files you want
+You can go to the next/previous bracket using the Ctrl - \ key.
+You can go to the next/previous bracket while selecting at the same time the text in between using the Ctrl - Shift - \ key.
+Ctrl - 0...9 and Ctrl - Shift - 0...9 are shortcuts for bookmarks. Set a bookmark by pressing Ctrl - Shift - 0...9. Go to the bookmark by pressing Ctrl - 0...9.
+You can organize many scripts into a project and publish all on a remote Server.
+Pressing F2 brings up the Project Manager.
+Holding down Control and clicking on a module, procedure, variable will search for its declaration.
+You can select an alternative starting path for a script when running or debugging from the Run/Select Starting Path item.
+You can rename variables and subroutines using the code explorer. Right click on them and select "rename".
+You can repeat a pattern search by right clicking the Search node in Code Explorer.
+You can select a secondary browser in Options/Running.
+You can open many editor windows in the Edit menu, and also add synchronized scrolling for them, which is useful to compare files.
+You can search for a regular expression in multiple files and folders, using the File Explorer in the Tools Menu.
+You can hide the OptiPerl icon from the system tray in Options/Environment.
+You can edit OptiPerl’s system tray menu under Customize Toolbars / Menus / Tray bar menu.
+You can comment in/out multiple lines from the Edit menu / Comment.
+The debugger can stop in breakpoints that you add even in run-time evaluated required modules.
+Tabs of each open file in the editor automatically get a letter underlined so you can access them by pressing alt-(letter).
+You can drag and drop the tabs in the editor window to rearrange open files.
+You can drag and drop a file from windows explorer or file explorer into the editor.
+OptiPerl's web browser supports extended keyboards like Microsoft's (R) Natural or Internet keyboard. Enable the option in Options/Environment.
+Enable the "Spy HTTP proxy" and browse the internet using OptiPerl's internal server. Check the "Server talk" tab.
+You can double click lines in the log windows to go to the corresponding line numbers.
+Try this unique feature of OptiPerl: The Output and Pod Viewer web browsers have find dialogs that support regular expressions! Invoke them with CTRL-F.
+You can debug scripts while running them on your remote web host. See the help file on how to do this.
+You can select whether the last line of folded blocks is visible or not from Options / Code folding.
+You can click the column headers in the Project Manager & To-do list to sort the corresponding column.
+You can search for items in Code Explorer using the keyboard. Enter a string, and the first item that starts with the text will be highlighted.
+Learn to use the Subroutine List (menu Search). It will increase your productivity!
+You can upload, download and view remote files using a FTP or Secure FTP connection.
+You can have optiperl highlight all text matching a regular expression in the editor, using dialog Advanced Find / Highlight button. For example \b\w{4}\b will highlight all single words with 4 characters.
+Right-clicking on a docked title bar shows its context menu. Holding down control and right-clicking shows its window menu.
+You can have optiperl highlight up to 4 search patterns with different colors in the editor. Use the highlight button from Find or Advanced Find dialogs.
+You can use the back button (alt-left arrow) to toggle between the last and current position in the editor.
+OptiPerl supports extended keyboards like Microsoft's (R) Natural or Internet keyboard. From Tools / Edit shortcuts, you can assign for example the "play" button with Run.
+You can browse through the results of an advanced search, using search category / Next & Previous Match (shortcuts: Alt - Up & Down).

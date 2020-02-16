@@ -1,0 +1,45 @@
+[elsif|elsif statement]
+elsif ( | ) {
+
+}
+
+[foreach|foreach loop]
+foreach ( | ) {
+
+}
+
+[if|if statement]
+if ( | ) {
+
+}
+
+[ifelse|if with else statement]
+if ( | ) {
+
+}
+else   {
+
+}
+
+[sub|subroutine definition]
+sub name|
+{
+
+return 1;
+}
+
+[unless|unless statement]
+unless ( | ) {
+
+}
+
+[until|until loop]
+until ( | ) {
+
+}
+
+[while|while loop]
+while ( | ) {
+
+}
+

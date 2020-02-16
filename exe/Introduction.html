@@ -1,0 +1,93 @@
+<head>
+<title>Welcome to OptiPerl!</title>
+</head>
+
+<p><i><b><font face="Arial">Welcome to OptiPerl 5!</font></b></i></p>
+<p><font face="Arial">If you just downloaded OptiPerl, or you are new to CGI
+programming, read the following for a quick start.</font></p>
+<p><font face="Arial">&nbsp;</font></p>
+<p><b><i><font face="Arial">Setting Up</font></i></b></p>
+<p><font face="Arial" color="#000000">1) If you don't already have Perl, download 
+  it: You will find the distribution we recommend on OptiPerl's support page:<br>
+  <a href="http://www.xarka.com/optiperl/support.html" target="_blank">http://www.xarka.com/optiperl/support.html</a></font></p>
+<p><font face="Arial" color="#000000">2) Follow the directions at the above page, 
+  to install perl.</font></p>
+<p><font face="Arial"><font color="#000000">3) You are ready!<br>
+  <font color="#010100"><br>
+  </font></font><br>
+  <br>
+  <b><i>Basic Stuff</i></b><br>
+  <font color="#000000"><br>
+  If you don't know much about how to use CGI scripts in your web page, here is 
+  a very brief introduction. There are many great sites on the internet for tutorials.<br>
+  <br>
+  Make sure you have installed first perl as noted in Setting Up.<br>
+  <br>
+  Let' s assume you want to create a web site with some forms. Do the following<br>
+  <br>
+  1) Select &quot;New html file&quot; and enter the following.<br>
+  <br>
+  </font></font><font color="#000000" face="Courier New">&lt;form&nbsp;action=&quot;cgi-bin/basic.cgi&quot;&nbsp;method=&quot;GET&quot;&gt;&nbsp;<br>
+  Enter&nbsp;some&nbsp;text&nbsp;here:&nbsp;<br>
+  &lt;input&nbsp;type=&quot;text&quot;&nbsp;name=&quot;text&quot;&nbsp;size=30&gt;<br>
+  &lt;input&nbsp;type=&quot;submit&quot;&gt;&lt;p&gt;&lt;/form&gt;&nbsp;<br>
+  </font><font face="Arial" color="#000000"><br>
+  This creates an input on your page for the user to enter text. Most web-editors 
+  allow you to create stuff like this automatically. Notice the GET method used 
+  here. When the user presses &quot;Submit&quot;, the browser will call the URL:<br>
+  <br>
+  </font><font color="#000000" face="Courier New">http://127.0.0.1/cgi-bin/test.cgi?text=what_you_typed<br>
+  </font><font face="Arial" color="#000000"><br>
+  Under the path you installed OptiPerl, you will find a folder &quot;webroot&quot; 
+  (like c:\program files\OptiPerl\webroot). Save your file there with the name 
+  &quot;basic.html&quot;<br>
+  <br>
+  2) Select &quot;New Script&quot; and enter the following.<br>
+  <br>
+  </font><font color="#000000" face="Courier New">#!perl<br>
+  print &quot;Content-Type: text/html\n\n&quot;;<br>
+  print &quot;Hello from script! &lt;p&gt;&quot;;<br>
+  print &quot;$ENV{'QUERY_STRING'} &lt;p&gt;&quot;;<br>
+  </font><font face="Arial" color="#000000"><br>
+  Save in &quot;webroot\cgi-bin&quot; as basic.cgi.<br>
+  <br>
+  Now time to run. Make sure that you have a check-mark on &quot;Server/Internal 
+  Server Enabled&quot; and the root path under &quot;Server/Internal Server Root&quot; 
+  is &quot;c:\program files\OptiPerl\webroot&quot; (or accordingly where you installed 
+  OptiPerl).<br>
+  Also make sure &quot;Server/Run with Server&quot; is checked too.<br>
+  <br>
+  Go back to your html document &quot;basic.html&quot; pressing the tab in the 
+  editor and press &quot;F9&quot; to run.<br>
+  You should see the html document in the web browser. Enter something in the 
+  text box and press &quot;Submit&quot;<br>
+  <br>
+  You should see the result in a dynamically created html page. That's the basics!<br>
+  If you get an error, please make sure you read about &quot;Setting Up&quot; 
+  in the help file.<br>
+  <br>
+  3) Now to send this to an Internet server, you might need to change the first 
+  line (the location of perl on the web server). If your internet web server has 
+  cgi enabled with a cgi-bin directory contact your provider for what this line 
+  should be. OptiPerl's provides many ways to do this automatically.<br>
+  </font></p>
+<br>
+<p><i><b><font face="Arial">OptiPerl's Help</font></b></i></p>
+<p><font face="Arial">Included with OptiPerl are the following to help you:</font></p>
+<ul>
+  <li><font face="Arial"><i>OptiPerl's Help. </i>After loading OptiPerl, we recommend 
+    reading the topics of OptiPerl's help (open from menu Help / Index). Also 
+    follow the tutorials in the corresponding sections. </font></li>
+  <li><font face="Arial"><i>Perl Core Documentation. </i>Includes all of perl's 
+    help for reading and context-sensitive lookup.</font></li>
+  <li><font face="Arial"><i>Perl Modules and Apache Documentation. </i>Included 
+    in registered versions of OptiPerl.</font></li>
+</ul>
+<font face="Arial">Also browse <a href="http://www.xarka.com/optiperl/support.html" target="_blank">OptiPerl's 
+support homepage</a>.</font> 
+<p>&nbsp;</p>
+<p><b><i><a href="webroot/cgi-bin"><font face="Arial">Examples</font></a></i></b></p>
+<p><font face="Arial">Included with OptiPerl are some examples of CGI
+programming. Explore the webroot folder to see these examples <font color="#000000">(from
+the book &quot;Official Guide to Programming with CGI.pm&quot; by Lincoln D.
+Stein - John Wiley &amp; Sons, Inc.).</font></font></p>

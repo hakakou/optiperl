@@ -1,0 +1,550 @@
+Whats new in v. 4.08    6. December 2003
+--------------------------------------------
+Important:
+ * Added sfDataTypeHeader to binary stream format which will allow storing
+   datatypes in the header. The information can be used to skip fields later on.
+   Notice that if this is used, it will break backward compatibility with older
+   binary files and with older versions of kbmMemTable.
+
+New stuff:
+ - Added support for mtcpoStringAsWideString copy flag which if set means that all
+   string and memo fields will be created as widestring instead of string.
+ - Added support for mtcpoWideStringUTF8 which means that all loadfromdataset/
+   savetodataset operations automaticaly includes UTF8 conversion.
+ - Added sfDataTypeHeader to binary stream format which will allow storing
+   datatypes in the header. The information can be used to skip fields later on.
+   Notice that if this is used, it will break backward compatibility with older
+   binary files and with older versions of kbmMemTable.
+
+Fixes/Enhancements:
+ - Fixed bug with regards to loading widestring data in CSV streamformat.
+ - Fixed repositioning problem after UpdateIndexes was run.
+ - Fixed Kylix 3 compatibility.
+
+Whats new in v. 4.07    27. November 2003
+--------------------------------------------
+New stuff:
+ - Added functions for setting fielddata and status for any version of a record. The old value
+   is returned.
+   function SetVersionFieldData(Field:TField; AVersion:integer; AValue:variant):variant;
+   function SetVersionStatus(AVersion:integer; AUpdateStatus:TUpdateStatus):TUpdateStatus;
+
+Fixes/Enhancements:
+ - Fixed version string :|
+ - Rewrote WideString support as the other way broke lots of other fieldtypes... Sorry folks!
+   Now done the 'right' way via the DataConvert method which of some strange reason
+   do not natively support WideString. Fortunately its possible to override it and fix it.
+ - Fixed D5 problems regarding overloaded AddFilteredIndex.
+
+Whats new in v. 4.06    26. November 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed not to default HAVE_COMMERCIAL_KBMMW_LICENSE definition.
+ - Fixed problem with indexes not setup to include inserted, modified and unmodified records by default
+   using one of the TkbmIndex constructors.
+ - Updated demo to fix compilation problem regarding AddFilteredIndex.
+ - Fixed the dreaded varlength getting null when calculated fields before varlength fields.
+
+
+Whats new in v. 4.05    25. November 2003
+--------------------------------------------
+New stuff:
+ - Added support for sfLoadIndexDef in sfIndexDef in binary and csv streamformats.
+   Thus its possible to not load indexes.
+ - Added new boolean property RangeIgnoreNullKeyValues which controls if
+   Null values are to be ignored or not in the key values for ranges.
+   Default true.
+ - Added IgnoreErrors argument to CopyRecords. Will ignore errors in assigning
+   field values and posting the record and continue to operate.
+ - Added mtcpoIgnoreErrors and mtcpoDontDisableIndexes to TkbmMemTableCopyTableOptions.
+ - Updated LoadFromDataset to respect mtcpoIgnoreErrors and mtcpoDontDisableIndexes.
+ - Added CopyOptions argument to SaveToDataset. Only mtcpoIgnoreErrors is currently supported.
+ - Added true ftWideString support (Unicode) also for csv and binary streamformats
+   (LEVEL6+ compilers only). Pre LEVEL6 compilers will convert the widestring to a
+   normal string using the AsString field method.
+ - Added AddIndex2 and AddFilteredIndex2 (pre LEVEL5 compilers) and overloaded
+   AddIndex/AddFilteredIndex (LEVEL5+ compilers) which includes a TUpdateStatusSet argument.
+   This allows for the index to show or filter specific updatestatus settings incl. deleted.
+ - Added Undo to revert to older record version.
+ - Added TkbmMWIndex.CreateByIndexDef (Pre LEVEL5 compilers) and TkbmMWIndex.Create overloaded
+   (LEVEL5+ compilers) which allow for specifying TIndexDef. By Rado Antloga.
+
+Fixes/Enhancements:
+ - Fixed bug with reposition on deleted record. Fix by Wilfried Mestdagh.
+ - Fixed bug when Filtered:=true and Filter<>'' at designtime. Then
+   opening table do not correctly set Filter. Reported by Rado Antloga.
+ - Fixed bug clearing main filterexpression when a filtered index is added.
+ - Disabled warnings in ParseNode due to unremovable warning. By Wilfried Mestdagh.
+ - Fixed _InternalCompareRecords to handle comparing null values correctly on descending indexes.
+   By Rado AntLoga.
+ - Changed Refresh to Resync in SwitchToIndex and UpdateIndexes. By Rado Antloga.
+ - Changed so fields are default visible when attaching to another table. By Julian Mesa.
+ - Added conditional CreateFields in InternalInitFieldDefs.By Julian Mesa.
+
+
+Whats new in v. 4.04    27. August 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed cancel resets cursor to first row. Reported by Rado Antloga.
+ - Removed ClearBuffers from SetRecNo. Reported by Rado Antloga.
+ - Altered AddIndex and AddFilteredIndex to be functions returning the
+   added index.
+ - Fixed enabling filtering before table opening. Reported by peter.andersen@dsd.as
+ - Fixed CompareFields ftTime comparison.
+ - Fixed nasty memory leaks in PrepareKeyRecord, LocateRecord and LookupByIndex.
+   Leak reported by Wilfied Mestdagh.
+ - Fixed coNOT operator not correctly returning Null instead of boolean value
+   when arguments is null. Bug reported by Peter Andersen (peter.andersen@dsd.as)
+ - Fixed bug when calling Sort or SortOn while in Edit mode. Problem reported by
+   Francesco Beccari (fbeccari@interplanet.it).
+ - Fixed compilation problems in Kylix.
+ - Fixed Commit and Rollback transaction handling.
+
+Whats new in v. 4.03    14. August 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed null comparison bug in TkbmCommon._InternalCompareRecords reported by
+   Emmanuel TRIBALLIER (emmanuel.triballier@ebp.com).
+ - Added call to clearbuffers when setting filter or enablefilter to force
+   a complete refetch of all TDataset buffers.
+ - Fixed installation in Level 4 compilers (ftGUID field type not supported).
+
+
+Whats new in v. 4.02    4. August 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed a serious string compare bug.
+ - Fixed grid repositioning issue when deleting record. Reported by Rado Antloga (radovan.antloga@siol.net)
+ - Added the darned BCB virtual/dynamic fix in all places in TkbmCustomMemTable. 
+ - Fixed USE_FAST_MOVE definition which was misspelled in several places.
+
+
+Whats new in v. 4.01    1. August 2003
+--------------------------------------------
+New stuff:
+ - Now kbmMemTable exists in two versions, Std and Pro.
+   Std is as usual open source and free.
+   Pro is avalailable for free for holders of valid kbmMW 
+   commercial developer licenses, but the Pro parts is 
+   under a non open source license.
+   Pro edition contains several new advanced algorithms
+   severely improving performance on specially large datasets.
+   The Pro parts must be downloaded from C4D seperately.
+ - Added support for ftBCD fields in PopulateField by Arming (armintan@263.net)
+
+Fixes/Enhancements:
+ - Fixed compiler warning in ParseNode.
+ - Fixed A/V in Commit. Reported by Willi (nonn@inwind.it)
+ - Updated Spanish ressource file by Francisco Armando Dueñas Rodríguez (fduenas@flashmail.com)
+ - Fixed ftGUID support.
+ - Fixed locating on partial indexes, using index.
+
+
+Whats new in v. 4.00    27. July 2003
+--------------------------------------------
+New stuff:
+ - Added DoOnFilterRecord virtual method. Suggested by Neven MacEwan (neven@mwk.co.nz).
+ - Performance optimized kbmMemTable. Now significantly faster for most operations.
+
+Fixes/Enhancements:
+ - Fixed enforcing unique index checking in AppendRecord. Bug reported by
+   Thomas Wegner (thomas@wegner24.de)
+ - Fixed several indexing bugs.
+
+
+Whats new in v. 3.14    2. July 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed locate/search operations on fields which are not indexed.
+   Bug reported by Ole Willy Tuv (owtuv@online.no).
+
+Whats new in v. 3.13    2. July 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed 'List out of bounds' bug in TkbmFieldList.MergeOptionsTo
+   when the two lists was not of same length.
+
+Whats new in v. 3.12    30. June 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Made TkbmCustomDeltaHandler.Dataset writable.
+ - Changed to guarantee that AfterLoad is called in InternalLoadFromStreamViaFormat.
+   Bug reported by Vladimir Ulchenko (zlojvavan@bigfoot.com).
+ - Fixed bug checking for number of fielddefs in CreateTable. Will now
+   for sure complain if more than KBM_MAX_FIELDS have been defined.
+ - Fixed range error in CodedString2String. Bug reported
+   by Karl Thompson (karlt@pine-grove.com).
+ - Changed several methods incl. CopyRecords from virtual to dynamic
+   for BCB only to solve BCB compile bugs.
+ - Fixed counting when not accepting a record in CopyRecords and UpdateRecords.
+   Bug reported by Nick (nring@smf.com.au)
+ - Fixed bug in SequentialSearchRecord with a missing pair of paranthesis.
+   Bug reported by winsano (llob@menta.net).
+
+New stuff:
+ - Added mtufDontClear to TkbmMemTableUpdateFlags which if set, avoids clearing
+   out fields which are not to be set by UpdateRecords.
+ - Modified TkbmIndexes.Search to always try to use matching index even if
+   its not current. Contributed by Markus Dütting (duetting@cosymed.de)
+ - Added AutoAddIndex property (default false) which if set to true
+   will automatically add an index during a search if none are available.
+   Use cautiously since you could end up with lots of indexes that have to
+   be maintained. Contributed by Markus Dütting (duetting@cosymed.de)
+
+
+Whats new in v. 3.11    29. June 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Added MergeOptionsTo to TkbmFieldList.
+ - Changed to TkbmIndexes.Search combine given field options with index field options.
+
+
+Whats new in v. 3.10    22. June 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Reimplemented InternalHandleException. Altered how it behaves under Kylix.
+ - Fixed Notification which would give problems if the same streamformat was
+   attached to two StreamFormat properties at the same time.
+ - Fixed persistency problems.
+
+
+Whats new in v. 3.09    15. May 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed missing AfterScroll event in GotoKey/FindKey/FindNearest.
+   Bug reported by Bill Miller (wcmiller@marimyc.com)
+ - Fixed occational A/V on rollback of inserted values.
+   Bug reported by Gert Kello (gert@gaiasoft.ee)
+   Added Swedish resource file by Henrick Hellström (henrick@streamsec.se)
+ - Optimized binary search DoRespectFilter and fixed bug in some cases
+   resulting in finding a filtered records.
+   Bug reported by Artem Volk (artvolk@softhome.net)
+ - Changed to disable filter when calling Reset.
+   Reported by Marco Kregar (mk_delphi@yahoo.com)
+ - Fixed SetRange, SetKey etc. throwing exception when dataset readonly.
+   Bug reported by Ping Kam (pkam@quikcard.com)
+ - Updated Spanish resource file by Francisco Armando Dueñas Rodríguez
+   (fduenas@flashmail.com)
+ - Updated Italian resource file by Alberto Menghini (alberto@asoft.it).
+ - Changed not to move DefaultExpression to LargeInt fields due to
+   Borland not fully having implemented largeint support in variants.
+ - Changed OnCompareFields to include a AFld:TField value.
+   Notice that this breaks existing code which need to add that extra
+   argument to their code.
+ - Fixed bug which could result in incorrect sorting of entries when
+   adding records.
+ - Fixed bug in SaveToDataset which would cause non graceful exception
+   in case destination table could not be opened.
+ - Fixed bug not loading last field in certain cases in CSV format.
+   Fix by Wilfried Mestdagh.
+ - Published AllDataFormat.
+ - Altered table designer to better list tables based on BDE alias.
+ - Disabled platform warnings and hints.
+ - Removed Application/Forms/Dialogs dependencies.
+ - Extended AddFilteredIndex to accept an optional FilterFunc argument.
+   The filter function is of format:
+   TkbmOnFilterIndex = procedure(DataSet:TDataSet; Index:TkbmIndex; var Accept:boolean) of object;
+ - Enhanced AddFiltered to allow for empty filterstring.
+ - Fixed Search which would not correctly search on current descending index unless
+   complete correct field specifiers was given. Now use field specifiers for
+   current index if fields matching.
+ - Added better error message for when trying to do LoadFromDataset with options for append and structure.
+
+Whats new in v. 3.08    24. Feb. 2003
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed compile bug in kbmMemTableReg.pas for LEVEL4 compilers.
+ - Fixed small inconsistency in SequentialSearchRecord reported
+   by Markus Dütting (duetting@cosymed.de)
+ - Fixed bug where OnGetValue was called in GetOrigValues instead
+   of GetValuesByName. Problem reported by WangWH (wangwh66@yahoo.com).
+ - Fixed so setting filtered to same value as it already has is ignored.
+
+Whats new in v. 3.07    8. Nov. 2002
+--------------------------------------------
+Fixes/Enhancements:
+ - Fixed endless loop in TkbmIndexes.DeleteIndex. Reported by
+   Markus Dütting (duetting@cosymed.de)
+ - Removed ClearRange in SwitchToIndex to support keeping range while
+   switching index.
+ - Made CheckPointRecord public.
+
+
+New stuff:
+ - Added support for ftOraBlob and ftOraClob field types for level 5+ compilers.
+ - Added OnGetValue event to TkbmCustomResolver which is called when
+   the resolver requests the new value for a field.
+
+Whats new in v. 3.07    8. Nov. 2002
+--------------------------------------------
+ 3.07   Fixed case bug confusing BCB. Declared RollBack implemented Rollback.
+        This lead to A/V's of adjacent functions in BCB.
+
+Whats new in v. 3.06    26. Sep. 2002
+--------------------------------------------
+ 3.06   Added OnGetValue event to TkbmCustomResolver which is called when
+        the resolver requests the new value for a field.
+        Fixed endless loop in TkbmIndexes.DeleteIndex. Reported by
+        Markus Dütting (duetting@cosymed.de)
+        Removed ClearRange in SwitchToIndex to support keeping range while
+        switching index.
+        Made CheckPointRecord public.
+        Added support for ftOraBlob and ftOraClob field types for level 5+ compilers.
+
+Whats new in v. 3.05    28. Aug. 2002
+--------------------------------------------
+ 3.05   Fixed autoinc population when using attached tables.
+
+Whats new in v. 3.04    12. Aug. 2002
+--------------------------------------------
+ 3.04   Fixed locking problem with resolver on table with attached tables and datacontrols
+        in threaded environment.
+        Modified InsertRecord, ModifyRecord, DeleteRecord, UnmodifiedRecord to
+        allow for Retry and State variable arguments.
+	Fixed CSV format not loading last field in some circumstances.
+
+Whats new in v. 3.03    7. Aug. 2002
+--------------------------------------------
+ 3.03   Kylix 3 and Delphi 7 support officially added.
+        Added several error classes:
+          EMemTableFatalError -> EMemTableInvalidRecord
+          EMemTableIndexError -> EMemTableDupKey
+          EMemTableFilterError
+          EMemTableLocaleError -> EMemTableInvalidLocale
+        Updated Italian ressource file by Alberto Menghini (alberto@asoft.it).
+        Updated Czech ressource file.
+        Updated Romanian ressource file by Sorin Pohontu (spohontu@assist.ro).
+        Made SavePersistent and LoadPersistent public.
+        Added public property PersistentSaved which indicates if persistent file
+        was saved. If true, SavePersistent will not be called again.
+        Added LookupByIndex by Prokopec M. (prokopec@algo-hk.cz)
+        Fixed 'List index out of range' while defining fielddefs with attribute hidden.
+        Bug reported by Adi Miller (dontspam@il.quest.com-adi)
+        Fixed so its ok to modify a field during OnCalcFields without putting
+        the dataset in edit mode.
+        Fixed problem with array and ADT fields. Bug reported by (huqd@mail.csoft.com.cn)
+
+
+Whats new in v. 3.02    29. July 2002
+--------------------------------------------
+ 3.02   Fixed compilation problems in D4 and Kylix by adding missing IFDEF's.
+        Problem reported by several.
+	Fixed not equal filtering problem reported by several.
+
+Whats new in v. 3.01    12. July 2002
+--------------------------------------------
+ 3.01   11. July. 2002
+        Changed TkbmIndex constructor to accept TkbmMemTableCompareOptions instead of
+        TIndexOptions.
+        Added global public functions:
+        IndexOptions2CompareOptions and CompareOptions2IndexOptions for
+        easy conversion between the two sets.
+        This allows for Sort/SortOn/SortDefault to utilize all special memtable
+        compare options. Further it enables manually created indexes via
+        TkbmIndex to take advantage of those features too.
+        Problem indicated by mariusz@nizinski.net.
+        Added new property AutoUpdateFieldVariables which is false by default.
+        Setting it to true automatically updates/adds field variables to the
+        owner of the memtable (f.ex. a form). Contributed by Ken Schafer (prez@write-brain.com)
+        Added support for ftFmtBCD.
+        Fixed InternalOpen problem which recreated fields/fielddefs for attached tables.
+        This resulted in severe problems when field order is different between base table
+        and attached table. Bug reported by michael.bonner@ci.fresno.ca.us.
+        Added support for ftTimestamp for LEVEL6 compilers (D6/BCB6).
+	Added support for Kylix 3.
+  
+
+Whats new in v. 3.00 FINAL 15. June 2002
+--------------------------------------------
+ 3.00 FINAL  
+        Fixed minor problem not resetting internal TDataset flags correctly
+        after a binary load.
+        Rolled the rollback and commit change in 3.00g Beta back due to serious
+        problems. Sorry about that. Bug reported by hans@hoogstraat.ca
+        Added support for indexing Lookup fields. Suggested by hans@hoogstraat.ca.
+        Fixed C++ Builder 6 project which mistakenly referred to kbmMW file.
+        Added BufferSize property to binary stream format.
+        Suggested by Ken Schafer (prez@write-brain.com)
+        Fixed some Kylix compability situations by (Hans-Dieter Karl) hdk@hdkarl.com
+        Removed TkbmTreadDataset from Kylix distribution.
+        Added ClearModified method to TkbmMemTable to clear out modification flags
+        of both fields and table. Suggested by hans@hoogstraat.ca
+        Changed so IsDataModified flag is not set if Edit/Post do not change anything.
+        Suggested by hans@hoogstraat.ca
+
+
+Whats new in v. 3.00g Beta 5. June 2002
+--------------------------------------------
+ 3.00g  Beta Fixed Commit/Rollback as suggested by (peter.bossier@sintandriestielt.be)
+        Made small changes for better support of fetch on demand in kbmMW.
+        Improved filtering to check for variant empty/null.
+        Added support for BCB6.
+        Added support for Kylix1. Please notice that the memtable designer although
+        ported for Linux, is not available simply because I cannot find a
+        decent way to invoke the default field editor programatically.
+        Thus all custom component editors have been disabled for Kylix 1.
+        Fixed RecordTag use while filtering bug. Bug reported by Aart Molenaar (almo@xs4all.nl)
+        Fixed comparing very large values in CompareField which could raise OutOfRange error.
+
+
+Whats new in v. 3.00f9 Beta 25. Feb. 2002
+--------------------------------------------
+ 3.00f9 Added OnFormatLoadField and OnFormatSaveField event for reformatting of
+        data before they are actually loaded or saved.
+        Added sfQuoteOnlyStrings (CSV) flag for selecting to only quote string/binary fields during save.
+        Published sfNoHeader and completed support for it (CSV). It controls
+        if a header should be saved or loaded.
+        Added raising an exception if Save... is called when table is closed.
+        Changed the result of OldValue for a field to return the original unchanged value
+        if versioning is enabled. This is to make kbmMemTable be more compatible with TClientDataset.
+
+
+Whats new in v. 3.00f8 Beta 30. Jan. 2002
+--------------------------------------------
+ 3.00f8 Fixed bug reading CSV files containing blobs.
+
+Whats new in v. 3.00f7 Beta 25. Jan. 2002
+--------------------------------------------
+ 3.00f7 Fixed bug not copying autoinc value in CopyRec when destination table empty.
+        Was wrongly testing for source table empty.
+        Fixed bug negating a negate when comparing descending field indexes.
+        Fixed problem comparing longint and int64 fields in comparefields.
+        Fixed sorting bugs introduced in 3.00f6.
+        Fixed searching using FindKey/FindNearest on descending indexes.
+        Fixed CompareBookmark function to better test for invalid bookmarks.
+        Fixed Persistent save during destruction which could lead to A/V.
+
+Whats new in v. 3.00f6 Beta
+--------------------------------------------
+ 3.00f6 Fixed massive leak in TkbmBinaryStreamFormat resulting from
+        missing to indicate records were part of table.
+        Changed so LoadFromDataset only issues First if source table was not on
+        first record. Will satisfy forward only sources.
+        Suggestion by Marco Dissel (mdissel@home.nl).
+        Added compiler directive for enabling short circuit evaluation.
+        Suggested by Bill Lee (mrbill@qualcomm.com)
+        Fixed Locate (and all other searching methods) on descending index.
+        Bug reported by Walter Yu (walter@163.net).
+        Fixed raising exception if no indexfieldnames given for FindKey.
+        Suggested by Sergei Safar (sergei@gold.com.br).
+        Fixed AutoReposition Index out of range when delete, close table, open table.
+        Bug reported by Federico Corso (federico.corso@eudata.it)
+
+Whats new in v. 3.00f5 Beta
+--------------------------------------------
+ 3.00f5 Fixed deltahandler Value and OrigValue returning empty string instead of Null
+        when field is null.
+
+Whats new in v. 3.00f4 Beta
+--------------------------------------------
+ 3.00f4 Fixed MasterFields designer for inherited components.
+        Virtualized MasterChanged, MasterDisabled, CopyRecords, Progress,
+        Lock and Unlock. 
+
+Whats new in v. 3.00f3 Beta
+--------------------------------------------
+ 3.00f3 Fixed floating point bug introduced in 3.00f2 in binary stream format.
+        Bug reported by Fred Schetterer (yahoogroups@shaw.ca).
+
+Whats new in v. 3.00f2 Beta
+--------------------------------------------
+ 3.00f2 Added missing AllDataFormat property.
+        Virtualized LoadFromStreamViaFormat and SaveToStreamViaFormat.
+        Fixed bug in InternalCompareFields as reported by Radovan Antloga
+        (radovan.antloga@siol.net).
+        Added TestFilter method for applying a filter to the current
+        record to see if its matching the filter. Contributed by vatt@internet.gr.
+        Added sfSaveInsert flag to TkbmCustomStreamFormat which will save to a
+        stream at the current position. Other values are sfSaveAppend which will
+        append to the stream and none which will overwrite contents of stream.
+        sfAppend overrules sfInsert.
+        Added check for number of field defs in several places.
+        Updated some language ressource files.
+        Fixed designer to save in binary when the binary checkbox was checked.
+        Bug reported by Francois Haasbroek (fransh@argo.net.au).
+        Fixed borrowing from TDataset in designer in Delphi 6. Solution
+        provided by Jorge Ducano (jorgeduc@portoweb.com.br)
+        Added sfSaveUsingIndex to TkbmCustomBinaryFormat. Its default true to
+        keep backwards compability. Set it to false if to save according to
+        the internal record list which also maintains deleted records.
+        v. 3.00 now again supports Delphi 3.
+
+Whats new in v. 3.00f1 Beta
+--------------------------------------------
+ Entering BETA state!
+ 3.00f1 Fixed A/V when dataset to which deltahandler connected is removed.
+        Added support for fkInternalCalc.
+
+Whats new in v. 3.00f Alpha
+--------------------------------------------
+ 3.00f Added protected CheckpointRecord to TkbmCustomMemTable.
+       Added missing published OnCompress and OnDecompress properties to
+       TkbmStreamFormat.
+       Added public Stream property to TkbmStreamFormat.
+       Fixed bug reported by Andreas Obermüller <obermueller@lop.de> in D6
+       when requiredfields was not checked.
+       Fixed copying null fields in CopyRecords, UpdateRecords and AssignRecord.
+
+Whats new in v. 3.00e Alpha (21. Sep. 2001)
+--------------------------------------------
+Fixes/Enhancements:
+ -  Fixed _InternalCompareRecords comparing two null fields.
+
+Whats new in v. 3.00d Alpha (20. Sep. 2001)
+--------------------------------------------
+Fixes/Enhancements:
+ -  Added Assign method to TkbmCustomStreamFormat.
+ -  Fixed Comparebookmarks to return -1,0 and 1 specifically.
+ -  Fixed not raising keyfields has changed exception when editing keyvalue
+    on a filtered index on an attached table.
+ -  Fixed AV when freeing base memtable to which others are attached.
+
+Whats new in v. 3.00c Alpha (12. Aug. 2001)
+--------------------------------------------
+Fixes/Enhancements:
+ -  Fixed Range comparison on multiple fields.
+
+Whats new in v. 3.00b Alpha (11. Aug. 2001)
+--------------------------------------------
+Fixes/Enhancements:
+ -  Fixed GetRecord(grCurrent) when filter not matching.
+ -  Fixed missing Refresh in SwitchToIndex when FRecNo=-1;
+ -  Removed DesignActivation from D3 since D3 doesnt have SetActive.
+ -  Fixed Lookup field type bug.
+ -  Fixed setting IsDataModified when versioning is enabled and record deleted.
+ -  Altered CopyRecords to copy autoinc value from source if destination table is empty.
+ -  Fixed FindKey/GotoKey returning True on second run even if key not found.
+ -  Reordered property entries of TkbmCustomMemTable.
+
+New stuff:
+ -  Added OnBeforeLoad, OnAfterLoad, OnBeforeSave and OnAfterSave to TkbmCustomStreamFormat.
+ -  Added protected SetTableState(AValue:TkbmState).
+ -  Split the kbmMemStreamFormat.pas file into kbmMemCSVStreamFormat.pas and kbmMemBinaryStreamFormat.pas.
+ -  Updated Slovakian ressource file.
+
+Whats new in v. 3.00a Alpha (22. July. 2001)
+--------------------------------------------
+Fixes/Enhancements:
+ - Moved FieldTypeNames and FieldKindNames to interface section for compability with kbmMW.  
+ - Removed wrong setting of FRecalcOnIndex in BuildFieldList.
+ - Made BuildFieldList, FindFieldInList, IsFieldListsEqual and SetFieldListOptions public.
+ - Fixed A/V bug setting Deltahandler to nil.
+ - Added new ADataset parameter to OnCompressBlobStream and OnDecompressBlobStream.
+
+New stuff:
+ - Rearranged I/O scheme. Thus SaveToBinaryxxxx, LoadFromBinaryxxxx and
+   SaveToxxxx and LoadFromxxxx along with all the CSV save flags are
+   not available anymore. Instead two new components TkbmBinaryStreamFormat,
+   and TkbmCSVStreamFormat has been introduced. New formats for save and
+   load can be build by inheriting from TkbmCustomStreamFormat or
+   TkbmStreamFormat.
+   (De)Compression of load/save operations has now been moved to the TkbmCustomStreamFormat
+   components. Thus code for these events need to be moved.
+ - Improved bookmarkvalid check by adding TkbmUserBookmark.
+
+Note:
+ This is an alpha release, and although most seems to work fine, it needs more testing.
+ Further the TkbmCustomStreamFormat base class _can_ change, although its probably only going to be minor
+ changes. But new I/O format classes may need small updates on later kbmMemTable releases.
+
+

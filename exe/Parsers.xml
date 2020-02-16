@@ -1,0 +1,269 @@
+<ParserList>
+
+<default>
+ None
+</default>
+
+<filetype>
+     <extensions>
+      .pl .pm .plx .cgi .pod
+     </extensions>
+     <parser>
+     perl
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .htm .html .shtm .shtml .stm .ssi
+     </extensions>
+     <parser>
+      HTML JavaScriptHTML ASP VBScriptHTML
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .
+     </extensions>
+     <parser>
+      none perl
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .css
+     </extensions>
+     <parser>
+      CSS2 CSS1
+     </parser>
+</filetype>
+ 
+<filetype>
+     <extensions>
+      .sql
+     </extensions>
+     <parser>
+      Sql
+     </parser>
+</filetype>
+ 
+<filetype>
+     <extensions>
+      .php .php3 .php4 .php5 .php6
+     </extensions>
+     <parser>
+      PHP
+     </parser>
+</filetype>
+ 
+<filetype>
+     <extensions>
+      .xml
+     </extensions>
+     <parser>
+      XML XMLScripts
+     </parser>
+</filetype>
+ 
+<filetype>
+     <extensions>
+      .xsl .xsd
+     </extensions>
+     <parser>
+      XML
+     </parser>
+</filetype>
+ 
+<filetype>
+     <extensions>
+      .asp
+     </extensions>
+     <parser>
+      ASP
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .pas
+     </extensions>
+     <parser>
+      Pascal
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .js
+     </extensions>
+     <parser>
+      JavaScript
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .inc
+     </extensions>
+     <parser>
+      php vbscript
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .vbs
+     </extensions>
+     <parser>
+      VBScript
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .ini
+     </extensions>
+     <parser>
+      Ini
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .bat
+     </extensions>
+     <parser>
+      MSDOSBat
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .py
+     </extensions>
+     <parser>
+      Python
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .asm .s
+     </extensions>
+     <parser>
+      Assembler
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .java .jav .jsp
+     </extensions>
+     <parser>
+      Java
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .tcl .tk .itk
+     </extensions>
+     <parser>
+      TclTK
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .rc
+     </extensions>
+     <parser>
+      RC
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .idl
+     </extensions>
+     <parser>
+      MicrosoftIDL
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .c .cpp .cc .cxx .cs
+     </extensions>
+     <parser>
+      C
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .vb
+     </extensions>
+     <parser>
+      VisualBasic
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .f .f77 .fd .fi .for
+     </extensions>
+     <parser>
+      Fortran
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .awk .awd
+     </extensions>
+     <parser>
+      Awk
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .fky .fpc .fpt .plb
+     </extensions>
+     <parser>
+      Foxpro
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .ch .clp
+     </extensions>
+     <parser>
+      Clipper
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .m2 .m3 .mod
+     </extensions>
+     <parser>
+      Modula2
+     </parser>
+</filetype>
+
+<filetype>
+     <extensions>
+      .sh
+     </extensions>
+     <parser>
+      UnixShell
+     </parser>
+</filetype>
+
+
+</ParserList>

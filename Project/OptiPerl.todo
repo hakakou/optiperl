@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+" callback for plugin windows, so that they 
+can manage their child-windows, or make whatever adjustments they need to?}
+
+
+
+
+}
+
+but not those where the opening brace is on the same line
+
+{ package x;
+...
+}}
+
+
+
+
+
+{TODO -cInformation : @ Last memo used 4000}

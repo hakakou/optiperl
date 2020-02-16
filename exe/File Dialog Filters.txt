@@ -1,0 +1,14 @@
+Perl Scripts (*.cgi;*.pl;*.pm;*.plx;*.pod)
+*.cgi;*.pl;*.pm;*.plx;*.pod
+
+HTML Documents (*.htm; *.html;*.shtml)
+*.htm;*.html;*.shtml
+
+XLM Documents (*.xml)
+*.xml
+
+Configuration files (*.cfg;*.conf)
+*.cfg;*.conf
+
+All Files (*.*)
+*.*

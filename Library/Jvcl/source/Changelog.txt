@@ -1,0 +1,214 @@
+2003-02-28:
+- Added IFDEF JVCL_REGISTER_GLOBAL_DESIGNEDITORS check to registration units to conditionally register property and component editors that overrides default editors for non-JVCL components or for standard properties. The define is in JVCL.INC and it is disabled by default. To enable, remove the dot (.) in the define
+2002-12-24
+- Properly separated a TJvCustomMaskEdit out of TJvMaskEdit at last
+- Made TJvCustomCheckedMaskEdit a descendant of TJvCustomMaskEdit
+- Streamlined the focus change event interfaces in TJvCustomMaskEdit and descendants and related compos:
+  [ATTENTION! Streaming Interface change!]
+  Renamed events  OnLoseFocus > OnKillFocus
+                  OnGetFocus  > OnSetFocus
+  Renamed methods LoseFocus   > DoKillFocus
+                  GetFocus    > DoSetFocus
+- Added focus change events to TJvCustomMonthCalendar //ogiesen
+
+2002-12-21
+ Added JvBallonHint // remko
+
+2002-11-19
+- Added Transparent and Multiline property to JvPanel. // peter3, pongtawat
+
+2002-11-18
+- Major changes to examples to compile with D5. Also added all projects except DynamicLoad and DBTree to JVCLDemos.bpg and makefile.mak // peter3
+
+2002-11-16:
+- Added undo capability and several new properties to JvMaskEdit // rbraasem
+
+2002-11-05
+- Moved JvTextContainer to \archive: duplicates TJvStrHolder with less functionality // peter3
+
+2002-11-04
+- As has been discussed on the NG in mid-October, decoupled TJvCustomMonthCalendar from its appearance properties for the benefit of TJvDatePickerEdit which could now expose all the relevant appearance-related properties of its dropdown calendar while still retaining its create-on-demand model without having to manage duplicated data. At this stage the designtime interface of TJvMonthCalendar2 remains completely intact. In the future it might be considered to drop the individual appearance-related properties in favour of exposing the Appearance instance directly. //ogiesen
+
+2002-11-02
+- Added TStrings item editor to JvInspector //marcelb
+
+2002-11-01
+- Added JvWndProcHook unit. This unit implements a method of safe subclassing of the WndProc of any TControl and makes sure the WndProc link can't be broken. Also modified JvHook, JvButtons, JvCaptionButton, JvaCaptionButton, JvAppHotKey, JvDragDrop, JvEasterEgg, JvPlacemnt, JvMagnet, Jvgrdcpt to use JvWndProcHook instead if subclassing directly. Moved JvHooks to \Archive. Moved TJvWindowHook class from JvHook to JvWndProcHook and modified it to use the JvWndProc subclassing method.  //peter3, remkobonte
+
+2002-10-28
+- Added JvScheduledEvents, ScheduleEditor. NOTE: needs JCL 1.22 or above // marcelb
+
+2002-10-27
+- Added "//"" comments to several units that contained cyrillic characters. Supposedly, these characters upsets Delphi on chinese systems, since some of them are interpreted as the ending } in a comment. Affected units are JvEditor, JvHLPareser, JvRegAuto, JvRegAutoEditor, JvStrUtil, JvUtils, JvaScrollText and JvDBUtil // peter3
+- Changed comment style of the first comment (license and author info) in JvHIDControllerClass, JvInspDB, JvInspXVCL, JvObjSel to make it easier to parse with the JVCL 3 admin tool //peter3
+
+2002-10-15
+- Fixed JvScrollText - If you had lines longer than the width of the component, not all of the text would get scrolled. Fix provide by Michael Freislich. //MBeck 
+
+2002-10-13
+- Fixed some memory leaks in JvInspector //marcelb
+- Added OnItemValueChanged/OnDataValueChanged events to TJvCustomInspector //marcelb
+- Added OnValueChanged event to TJvCustomInspectorItem //marcelb
+- Added OnValueChanged event to TJvCustomInspectorData //marcelb
+
+2002-10-10
+- Added Oliver Giesens date components to the D6 packages
+- Added JvStdActions, JvDialogActns and JvActnRes to D6 DT package
+- Added new ownerdrawn ImageList.ImageIndex property editor to JvDsgnEditors that works with both D5 and D6. 
+  Easy to derive new property editor from it without having to reimplement (just override the ImageList function)
+
+2002-10-09
+- Renamed the "RxLib" resources (bitmaps and string tables) in JVCL so that RxLib and JVCL can be installed side-by-side without name conflicts
+- Reassigned JvFormStorage lost event handlers
+
+2002-10-05
+- Added datetimepicker and checked mask edit donated by Oliver Giesen/Lucatec
+
+2002-09-12
+- Added Multiline to JvSizeablePanel //MBeck
+
+2002-09-05
+- Added JvPlugin donated by Tim Sullivan
+
+2002-09-03
+- Added donations from Fernando Silva - JvFooter, JvNTEventLog and JvGroupHeader
+
+2002-08-28
+- Added RALib components donated by Andrei Prygounkov 
+
+2002-08-28
+- Added new options to JvSHFileOp
+
+2002-08-26
+- Added JvBands donated by Chiang Seng Chang //MBeck
+- removed DesignSize from few forms (doesn't exist in D5) //MBeck
+
+2002-08-25
+- JvInspector: Added RelativeDivider property
+- JvInspector: Changed compound item to a protected base class
+- JvInspector: Added public compound item
+- JvInspector: Added options to compound item to allow a single name
+- JvInspector: Added TDate, TTime and TDateTime editors
+- JvInspector: Changed the way data instances/items are created 
+- JvInspector: All Items have their own separate DisplayName, initialized to the data's Name property
+- JvInspector: Minor fix-ups
+
+2002-08-23
+- Added JVDSADialogs donated by Marcel Bestebroer
+
+2002-08-10
+- Moved JvSearchFile.pas, JvSearchFiles.pas and JvSysComp to /archive //Remko Bonte
+- Removed JclFileMaskComparator and TJvFileTreescan out of JvSysComp.pas //Remko Bonte
+- Added modification to JvSearchFiles.pas //Remko Bonte
+- Updated JvFormWallPaperEdit to use TJvSearchFiles instead of TJvSearchFile //Remko Bonte
+- Updated fjvclConverterMain.pas to use new TJvSearchFiles //Remko Bonte
+
+2002-07-26
+- Added updated JvCoupler from Rob den Braseem - set label position
+- Added TAnchorKind declaration to JvTypes for D4 and below
+- Added Action support to TJvCustomLookoutButton
+
+2002-07-25
+- Changed JvFunctions and JvWinDialogs to conditionally exclude cpl.pas for D6Pe
+- Changed D6Pe packages to remove units not supported
+- Removed Forms and replaced Application.ProcessMessages from JvSearchFiles
+- TJvSearchFiles, TJvSearchFile and TJvFileTreeScan (from JvSysComp.pas) merged into TJvSearchFiles (by Remko Bonte)
+
+2002-07-24
+- TJvTrayIcon: Added mechanism to reduce hint refresh, only refreshing when user request the hint
+
+2002-07-22
+- added JvThumbImage, JvThumbNail, JvThumbView, JvMovableBevel  donated by John Kozikopulos  //MBeck
+
+2002-07-20
+- fixed a few minor bugs
+- added Ariochs fixes to JvMRU
+- added modifications from Rudy Velthuis to JvRadioControl (better drawing)
+- moved JvFormDirectory to \archive (part of removed Installer)
+- moved JvFormCalculator to \archive
+- moved JvCalculator, JvCalculatorBox, JvButtonBox, JvCustomBox, JvDirectoryBox, JvFilenameBox, JvImageBox to \archive
+- moved JvShell to \archive - JvxTrayIcon duplicates JvTrayIcon
+- moved JvShDlg to \archive - utility functions not used
+- moved JvCombos to \archive - duplicates TJvFontComboBox and TJvColorComboBox
+- moved standard compiler directives from units into JVCL.INC (using Convert)
+- replaced JEDI.INC with JVCL.INC in units/packages (using Convert)
+- added DJCL??.DPK to JVCL200_R??.DPKs requires section
+- moved {$ObjExportAll ON} from units to JVCL.INC (using Convert)
+
+2002-07-19
+- Converted DELPHIXX defines to COMPILERXX with Michael Becks Convert utility 
+- fixed Directory setter bug in JvBrowseFolder
+- moved all BMP's and PNG's to \glyphs and glyphs\PNG because of re-casing problem in CVS (cannot change case of existing files even if you delete and re-add it)
+2002-07-18
+- Changed generic Exception classes to EJVCLException and added JvTypes where necessary
+- Remko Bonte fixed design-time bugs in JvSpecialProgress 
+
+2002-07-16
+- Added JvRadioControl donated by Rudy Velthius
+- removed JvStrxLEdit (duplicate of JvStrLEdit)
+
+2002-07-15
+- Moved several forms that wasn't used to \archive\installer. These were part of the already archived installer package
+- Readded JvFormProgress (deleted by mistake)
+
+2002-07-14
+- TJvTrayIcon: Restructured all visibility options 
+- TJvTrayIcon: Added autohide capability and design mode
+- TJvTrayIcon: Removed timer when not animated
+- Moved TJvDBProgressBar from JvProgressBar to new unit JvDBProgressBar.pas
+- Fixed corrupted DFM files from converted RxLib
+- Added RunDLL32 and RunDLL32Internal functions to JvFunctions
+
+2002-07-13
+- Fixed CRLF corruption - couldn't open files in D5 (is this due to D6 or CVS?)
+- Added new component, JvAnalogClock, from Frenk Vrtariè
+- Added Michael Beck's converted RxLib files to the source
+- Modified D6 packages to include new RxLib components
+- Modified D5 packages to include new RxLib components
+- Extracted and added images from RxLib to \images and updated rc script
+
+2002-07-11
+- Added Robert Marquardt's HID component to the Jv System tab and a couple of demos to \examples
+- JvRecentMenuBtn: fixed bug where folders were included
+- JvDirectories: added properties for getting the Common and All Users folders
+- JvFavoritesButton: now folders are placed ahead of files
+- JvStartMenuBtn:now folders are placed ahead of files + added Options property to include items from the Common and All Users Start Menus
+
+2002-07-10
+- Added packages for Delphi 6 Personal (JVCL200_R60Personal and JVCL200_D60Personal)
+- Modified JvProgressBar to support D6 Personal
+
+2002-07-08
+- Modified Files for D5 support:
+	JvAppHotKey.pas JvCaptionButton.pas JvChangeNotify.pas 
+	JvCheckBox.pas JvCheckListBox.pas JvClipboardViewer.pas 
+	JvColorCombo.pas JvCombobox.pas JvDateTimePicker.pas 
+	JvDeviceChanged.pas JvDiagramShape.pas JvDialogs.pas 
+	JvDragDrop.pas JvEasterEgg.pas JvFunctions.pas 
+	JvImageTransform.pas JvJoystick.pas JvListBox.pas JvMagnet.pas 
+	JvPlaylist.pas JvRas32.pas JvScreenResolution.pas 
+	JvSearchFile.pas JvSearchFiles.pas JvSimpleXml.pas 
+	JvSlider.pas JvZlibMultiple.pas 
+
+- Added DPK's and DOF's for Delphi 5 (JVCL200_R5 and JVCL200_D5)
+
+2002-07-07
+- Added changes and bug fixes to JvTrayIcon, JvStatusBar, JvTranslator and JvListView from Sebastien Buysse
+
+2002-07-05
+- Added JvInspector and support units (JvInspDB and JvInspXVCL) from Marcel Bestebroer
+- JvInspector bug fixes by Deepak Shenoy:
+=========================================
+-- InspectorItem.SelectValue() 
+   Added "If SL.Count>0" check to ensure no infinite loop occurs when no items are in the list
+-- InspectorItem.SetEditCtrl()
+   Reset Window Proc to old window proc before freeing the Old Edit Ctrl because I was getting a weird access violation when I tabbed too fast and tabbing was on. (Deepak Shenoy)
+Note: have to consider reusing? Or somehow allowing custom call in at this point.
+-- InspectorItem.DrawValue()
+   Added the "If Data=nil" check at the beginning because sometimes we were getting data=nil (??)
+=========================================
+
+2002-07-01 (2.00)
+- New restructured version released: for more details on changes, see restruct_changelog.txt; for more info on demo changes, see restruct_demochanges.txt
+
+      

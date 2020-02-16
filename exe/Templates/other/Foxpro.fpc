@@ -1,0 +1,76 @@
+****
+*
+* Main program. Checks to see if the local library database exists and creates
+* it if necessary. Then, the menu is run to start the application.
+*
+****
+
+#INCLUDE LIBRARY.H
+
+PUBLIC aEnvironment[10] && Array to hold environment info to set and restore
+PUBLIC gnReturn         && Global return variable
+
+
+gnReturn = 0
+DO InitEnvironment WITH .T.
+SET PROC TO LIBSETUP
+IF !FILE (SETUP_FILE)
+      DO Install
+ENDIF
+IF gnReturn = 0
+      * Create a dummy file on the system so that next time we don't initialize.
+      hFile = FCREATE (SETUP_FILE)
+      =FCLOSE (hFile)
+      DO library.mpr
+      READ EVENTS
+ENDIF
+DO InitEnvironment with .F.
+
+PROCEDURE InitEnvironment
+PARAMETERS llInit
+
+IF llInit
+      PUSH MENU _MSYSMENU
+      SET CLASSLIB TO CONFLICT
+      IF SET ('talk')='ON'
+            SET TALK OFF
+            aEnvironment[1]='ON'
+      else
+            aEnvironment[1]='OFF'
+      endif
+      aEnvironment[2]=set('safety')
+      SET SAFETY OFF
+      aEnvironment[3] = set('exclusive')
+      SET EXCLUSIVE OFF
+ELSE
+      SET exclusive &aEnvironment[3]
+      SET safety &aEnvironment[2]
+      SET talk &aEnvironment[1]
+      CLOSE DATABASES ALL
+      RELEASE ALL
+      CLEAR ALL
+      POP MENU _MSYSMENU
+ENDIF
+ENDPROC
+
+FUNCTION CheckExec
+PARAMETERS phConnect, pcExecString, pcCursor
+
+LOCAL laErrors[10]
+LOCAL lcErrorString, lnRetVal
+
+IF TYPE ('pcCursor') = 'L'
+      lnRetVal = SQLEXEC (phConnect, pcExecString)
+ELSE
+      lnRetVal = SQLEXEC (phConnect, pcExecString, pcCursor)
+ENDIF
+
+IF lnRetVal < 0
+      =AERROR (laErrors)
+      lcErrorString = laErrors[1,2] + CHR(13) + CHR(10) + pcExecString
+      =MESSAGEBOX (lcErrorString, MB_OK + MB_ICONSTOP, FATAL_ERROR_LOC)
+      gnReturn = -1
+      =SQLDISCONNECT (phConnect)
+      RETURN TO MASTER
+ENDIF
+ENDFUNC

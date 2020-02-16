@@ -1,0 +1,55 @@
+THKStreams v1.7 by Harry Kakoulidis 1/2002
+prog@xarka.com
+http://www.xarka.com/prog/
+
+This is Freeware. Please copy HKStrm16.zip unchanged.
+If you find bugs, have options etc. Please send at my e-mail.
+
+The use of this component is at your own risk.
+I do not take any responsibility for any damages.
+
+HKStreams is a component that enables you to easily save and load many streams into one file. The streams can be stored with LHA compression if wanted, and can also be encrypted with blowfish. THKStreams is also smart, if you load afterwards an encrypted or compressed (or both) file, it will now how to read it, and can also call your event that asks the user for a password if needed. Source and EXE demo included.
+
+Please read comment in the begging of HKStreamCol.pas for notes about v1.7
+
+Installation
+------------
+Add to a package both pas units. The component will be registered to a page HAKA. Change if you want. If you have Delphi 4, 5 or 6 you will get many warnings while compiling. Just ignore.
+
+Example
+-------
+Please follow the example for an easy to follow implentation. Few of the following are needed to do a simple job.
+
+
+Published
+---------
+*** Compressed : will the file be saved with compression?
+*** Encrypted : will it be encrypted?
+*** Key : Password if encrypted
+*** OnAskForKey : Event triggered if THKStreams encounters a encrypted file. It is a function that you should return a password. For example opening a dialog box that asks the user a password.
+*** OnCorrupt : This is called if the user enters a wrong key or the file is corrupt
+
+Public
+------
+*** StreamList : it is a StringList with all of your ID's. The objects point to the corresponding streams.
+
+
+Runtime procedures
+------------------
+*** Procedure LoadFromFile(const Filename : string);
+*** Procedure SaveToFile(const Filename : string);
+*** Procedure LoadFromStream(ms : TStream);
+*** Procedure SaveToStream(ms : TStream);
+
+Easy to understand
+
+*** Procedure AddStream(Const ID : string; Source : TStream);
+*** Procedure RemoveStream(Const ID : String);
+*** Procedure GetStream(Const ID : string; Dest : TStream);
+
+Procedures to add/remove/retrieve streams. Notice that you have to pass a string that identifies the stream in the list. ID's are case sensitive
+
+*** Procedure ClearStreams;
+Frees all streams. 
+
+

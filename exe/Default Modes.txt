@@ -1,0 +1,28 @@
+[DefaultModes]
+
+;This file describes the transfer modes and 
+;permissions when importing into project manager
+;and uploading via "save to remote location".
+;
+;The configuration is read from top to bottom.
+;This file is read on startup and whenever you
+;close the Tools/ Options dialog.
+
+*.*     = 644,Binary
+
+*.pl    = 755,Text
+*.pm    = 600,Text
+*.cgi   = 755,Text
+*.      = 755,Text
+
+*.htm*  = ,Text
+*.shtml = ,Text
+*.xml   = ,Text
+*.php   = ,Text
+*.asp   = ,Text
+*.txt   = ,Text
+*.log   = ,Text
+*.cfg   = ,Text
+
+.htaccess = ,Text
+
