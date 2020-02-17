@@ -64,6 +64,10 @@ If you were a customer of OptiPerl and bought the full version, you'll notice th
 
 * Plug-Ins.
 
+# Documentation
+
+See <https://github.com/hakakou/optiperl/wiki>
+
 # Binary Release
 
 See <https://github.com/hakakou/optiperl/releases>
